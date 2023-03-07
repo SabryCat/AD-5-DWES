@@ -44,12 +44,12 @@
     </button>
     <button type="button" class="btn btn-outline-light text-dark">
 	    <sec:authorize access="!isAuthenticated()">
-			<a href="/inicio" class="nav-link">Iniciar Sesión</a>
+			<a href="/registrado" class="nav-link">Iniciar Sesión</a>
 		</sec:authorize>
     </button>
     <button type="button" class="btn btn-outline-light text-dark">
 	    <sec:authorize access="isAuthenticated()">
-			<a class="nav-link" href="/">Cerrar Sesión</a>
+			<a class="nav-link" href="/logout">Cerrar Sesión</a>
 		</sec:authorize>
     </button>
   </div>
