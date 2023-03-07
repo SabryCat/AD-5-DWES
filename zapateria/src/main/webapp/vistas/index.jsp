@@ -14,8 +14,8 @@
 
 </head>
 <body>
-<div class="container">	
 	<jsp:include page="menu.jsp"/>
+<div class="container">	
 	<div class="row">	
 		<div class="col-sm-10">
 			<div class="jumbotron text-center">
