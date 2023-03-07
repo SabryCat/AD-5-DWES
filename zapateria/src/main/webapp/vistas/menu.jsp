@@ -40,6 +40,7 @@
     <ul class="navbar-nav">
       		<li class="nav-item"><a href="/productos/todos" class="nav-link btn btn-outline-info">Catálogo</a></li>
       		<li class="nav-item"><a href="/usuarios/registro/cliente" class="nav-link btn btn-outline-info">Resgistrase</a></li>
+      		<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link btn btn-outline-info">Registrar Nuevo Administrador</a></li> 
    			<sec:authorize access="hasAuthority('Administrador')">
 				<li class="nav-item"><a href="/inicio/" class="nav-link btn btn-outline-info">Iniciar Sesión</a></li>
 				<li class="nav-item"><a href="/logout" class="nav-link btn btn-outline-info">Cerrar Sesión</a></li>
@@ -47,7 +48,7 @@
 				<li class="nav-item"><a href="/" class="nav-link btn btn-outline-info">Registrar Tarjeta</a></li>
 				<li class="nav-item"><a href="/" class="nav-link btn btn-outline-info">Registrar Dirección</a></li>
 				
-				<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link btn btn-outline-info">Resgistrar Nuevo Administrador</a></li>   
+				  
        		</sec:authorize>   
     </ul>  
   </div>

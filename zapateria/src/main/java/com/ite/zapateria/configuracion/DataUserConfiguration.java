@@ -20,11 +20,11 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	auth
 	.jdbcAuthentication().dataSource(dataSource)
-	.usersByUsernameQuery("select nombre, password, enabled from Usuarios where nombre=?")
-	.authoritiesByUsernameQuery("select u.nombre, r.nombre "
+	.usersByUsernameQuery("select email, password, enabled from Usuarios where email=?")
+	.authoritiesByUsernameQuery("select u.email, r.nombre "
 								+ "from Roles r " +  
 									"inner join Usuarios u on u.id_rol = r.id_rol " + 
-									"where u.nombre = ?");
+									"where u.email = ?");
 	}
 	
 	//Configuracion de roles url permitidas y no permitidas
