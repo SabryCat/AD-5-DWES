@@ -24,13 +24,13 @@
       		<sec:authorize access="!isAuthenticated()">
       			<li class="nav-item"><a href="/usuarios/registro/cliente" class="nav-link">Resgistrase</a></li>
       		</sec:authorize>
-   			<sec:authorize access="hasAuthority('Administrador')">
-				<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link">Registrar Nuevo Administrador</a></li> 
-				<li class="nav-item"><a href="/logout" class="nav-link">Cerrar Sesión</a></li>
-				<!-- esto debería ser para el cliente con condicion de access="isAuthenticated()" -->
+      		<sec:authorize access="hasAuthority('Cliente')">
 				<li class="nav-item"><a href="/" class="nav-link">Registrar Tarjeta</a></li>
 				<li class="nav-item"><a href="/" class="nav-link">Registrar Dirección</a></li>  
-       		</sec:authorize>  
+			</sec:authorize> 
+   			<sec:authorize access="hasAuthority('Administrador')">
+				<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link">Registrar Nuevo Administrador</a></li> 
+			</sec:authorize>        		 
     </ul>
   </div>
 </nav>
