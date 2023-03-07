@@ -42,7 +42,7 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 			.antMatchers("/productos/todos").permitAll()
 			.antMatchers("/productos/detalle/**").permitAll()
 			.antMatchers("/usuarios/registro/cliente").permitAll()
-			
+			.antMatchers("/usuarios/alta/cliente").permitAll()
 			.antMatchers("/usuarios/registro/administrador").hasAnyAuthority("Administrador")
 			.antMatchers("/logout").hasAnyAuthority("Administrador","Cliente")
 			

@@ -1,6 +1,7 @@
 package com.ite.zapateria.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,8 @@ public class UsuarioController {
 	UsuarioDao listaUsuarios;
 	@Autowired
 	RolDao listaRoles;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping("/registro/cliente")
 	public String registroCliente(Model model) {
@@ -38,8 +41,9 @@ public class UsuarioController {
 	public String altaCliente(@RequestParam String nombre, @RequestParam String apellido,@RequestParam String password, 
 			@RequestParam String email, @RequestParam String telefono, Model model, RedirectAttributes redirect) {
 		
+		String encriptado = passwordEncoder.encode(password);  
 		Role rolCliente=listaRoles.buscarRol(2);
-		Usuario usuario = new Usuario(0, apellido, email, 1, nombre, password, telefono, rolCliente, null, null);
+		Usuario usuario = new Usuario(0, apellido, email, 1, nombre, encriptado, telefono, rolCliente, null, null);
 		
 		if(listaUsuarios.altaUsuario(usuario)==null) {
 			redirect.addFlashAttribute("info", "Cliente ya existe. No se puede dar de alta");
