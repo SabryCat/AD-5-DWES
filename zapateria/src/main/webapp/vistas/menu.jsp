@@ -11,8 +11,8 @@
 </head>
 <body>
 <sec:authentication property="name"/>
-<sec:authorize access="hasAuthority('Administrador')">Eres un ADMON</sec:authorize>
-<sec:authorize access="hasAuthority('Cliente')">Eres un Cliente</sec:authorize>
+<sec:authorize access="hasAuthority('Administrador')">Eres ADMON</sec:authorize>
+<sec:authorize access="hasAuthority('Cliente')">Eres Cliente</sec:authorize>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
 			<li><a class="nav-link"
