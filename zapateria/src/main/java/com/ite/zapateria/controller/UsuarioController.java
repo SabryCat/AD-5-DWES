@@ -51,7 +51,7 @@ public class UsuarioController {
 			redirect.addFlashAttribute("info", "Cliente dado de alta correctamente");
 		}
 		
-		return "redirect:/usuarios/registro/cliente";
+		return "redirect:/productos/todos";
 	}
 	@PostMapping("/alta/administrador")
 	public String altaAdministrador(@RequestParam String nombre, @RequestParam String apellido,@RequestParam String password, 

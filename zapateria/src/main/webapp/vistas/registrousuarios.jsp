@@ -8,8 +8,8 @@
 
 </head>
 <body>
+<jsp:include page="menu.jsp"/>
 <div class="container">	
-	<jsp:include page="menu.jsp"/>
 	<div class="row">	
 		<div class="col-10">
 			<div class="page-header m-4">
