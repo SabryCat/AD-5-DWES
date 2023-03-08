@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="usuarios")
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
-public class Usuario implements Serializable {
+public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -143,7 +144,7 @@ public class Usuario implements Serializable {
 	public void addDireccion(Direccion direccion) {
 		if (direcciones == null)
 			direcciones = new ArrayList<>();
-		direcciones.remove(direccion);
+		direcciones.add(direccion);
 	}
 	
 	public void removeDireccion(Direccion direccion) {
@@ -214,5 +215,6 @@ public class Usuario implements Serializable {
 				+ enabled + ", nombre=" + nombre + ", password=" + password + ", telefono=" + telefono + ", role="
 				+ role + ", direcciones=" + direcciones + ", tarjetas=" + tarjetas + "]";
 	}
+
 
 }

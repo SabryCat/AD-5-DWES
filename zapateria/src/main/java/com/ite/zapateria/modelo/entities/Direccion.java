@@ -91,4 +91,13 @@ public class Direccion implements Serializable {
 		return true;
 	}
 
+	public Direccion(int idDireccion, String calle, String codigoPostal, String localidad, int numero) {
+		super();
+		this.idDireccion = idDireccion;
+		this.calle = calle;
+		this.codigoPostal = codigoPostal;
+		this.localidad = localidad;
+		this.numero = numero;
+	}
+
 }

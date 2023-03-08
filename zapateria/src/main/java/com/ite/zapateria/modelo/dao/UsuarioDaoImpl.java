@@ -17,10 +17,11 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	@Autowired
 	UsuarioRepository listaUsuarios;
 	
+	
 	@Override
-	public Usuario buscarByEmailAndPassword(String email, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario buscarByEmail(String email) {
+		
+		return listaUsuarios.buscarPorEmail(email);
 	}
 
 	@Override

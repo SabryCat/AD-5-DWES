@@ -7,7 +7,7 @@ import com.ite.zapateria.modelo.entities.Tarjeta;
 import com.ite.zapateria.modelo.entities.Usuario;
 
 public interface UsuarioDao {
-	Usuario buscarByEmailAndPassword(String email, String password);
+	Usuario buscarByEmail(String email);
 	Usuario buscarUsuario(int idUsuario);
 	void registrarTarjeta(Tarjeta tarjeta);
 	void resgistrarDireccion(Direccion direccion);

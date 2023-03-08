@@ -1,5 +1,7 @@
 package com.ite.zapateria.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ite.zapateria.modelo.dao.DireccionDao;
 import com.ite.zapateria.modelo.dao.RolDao;
 import com.ite.zapateria.modelo.dao.UsuarioDao;
+import com.ite.zapateria.modelo.entities.Direccion;
 import com.ite.zapateria.modelo.entities.Role;
 import com.ite.zapateria.modelo.entities.Usuario;
 @RequestMapping("/usuarios")
@@ -24,6 +28,8 @@ public class UsuarioController {
 	RolDao listaRoles;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
+	DireccionDao listaDirecciones;
 	
 	@GetMapping("/registro/cliente")
 	public String registroCliente(Model model) {
@@ -67,5 +73,29 @@ public class UsuarioController {
 		}
 		
 		return "redirect:/usuarios/registro/administrador";
+	}
+	@GetMapping("/registro/direccion")
+	public String registroDireccion() {
+
+		
+		return "registrodireccion";
+	}
+	
+	@PostMapping("/registro/direccion")
+	public String altaDireccion(@RequestParam String cp, @RequestParam String localidad,
+			@RequestParam String calle, @RequestParam int numero, RedirectAttributes redirect, Principal principal) {
+		
+		Usuario usuario= listaUsuarios.buscarByEmail(principal.getName());
+		Direccion direccion= new Direccion(0, calle, cp, localidad, numero);
+		usuario.addDireccion(direccion);
+		listaDirecciones.altaDireccion(direccion);
+		redirect.addFlashAttribute("mensaje", "Nueva direccion añadida correctamente");
+		
+		return "redirect:/usuarios/registro/direccion";
+	}
+	@GetMapping("/registro/tarjeta")
+	public String registroTarjeta() {
+		
+		return "registrotarjeta";
 	}
 }
